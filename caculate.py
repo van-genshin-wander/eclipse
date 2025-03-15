@@ -59,8 +59,6 @@ def n_body(t, state):
     return np.concatenate([earth_vel, earth_acc, moon_vel, moon_acc])
 
 def get_solution(t_span, t_eval, state0):
-# 时间跨度（20年）
- # 时间步长约3天
 
 # 数值积分
     solution = solve_ivp(n_body, t_span, state0, t_eval=t_eval, 
