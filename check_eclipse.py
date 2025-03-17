@@ -112,7 +112,7 @@ def check_eclipse_point(pos_moon, pos_earth, pos_observer, r_moon=R_MOON, r_eart
     norm_om = np.linalg.norm(ob_moon)
     norm_os = np.linalg.norm(ob_sun)
     norm_oe = np.linalg.norm(ob_earth)
-    angle_moon = math.asin(R_EARTH / norm_om)
+    angle_moon = math.asin(R_MOON / norm_om)
     angle_sun = math.asin(R_SUN / norm_os)
     if math.acos(ob_earth @ ob_sun / (norm_oe * norm_os)) < 0.5 * np.pi:
         return ans
