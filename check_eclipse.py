@@ -73,7 +73,12 @@ def check_solar_eclipse(pos_moon, pos_earth, r_moon=R_MOON, r_earth=R_EARTH, r_s
     if check_cone_inner(inner, pos_moon, r_moon, pos_earth, r_earth, same=True):
         ans.add("日偏食")
     return ans
-    
+
+def check_lunar_eclipse(pos_moon, pos_earth, r_moon=R_MOON, r_earth=R_EARTH, r_sun=R_SUN):
+    pre_ans = check_solar_eclipse(pos_moon=pos_earth, pos_earth=pos_moon, r_moon=r_earth, r_earth=r_moon, r_sun=r_sun)
+    ans = set(s.replace('日', '月') for s in pre_ans)
+    return ans
+
 # def check_eclipse_point(pos_moon, pos_earth, pos_observer, r_moon=R_MOON, r_earth=R_EARTH):
 #     ans = set()
 #     # if pos_observer @ pos_earth > pos_earth @ pos_earth:

@@ -121,6 +121,8 @@ def check_lis(start_id, end_id, shape):
     moon_traj = np.ndarray(shape, np.float64, shm_moon.buf)
     for i in range(start_id, end_id):
         flag = check_solar_eclipse(moon_traj[:, i], earth_traj[:, i])
+        flag_lunar = check_lunar_eclipse(moon_traj[:, i], earth_traj[:, i])
+        flag = flag.union(flag_lunar)
         if flag:
             merge_ans(ans, [i, i, flag])
     shm_earth.close()
